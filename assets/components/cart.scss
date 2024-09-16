@@ -1,0 +1,178 @@
+.cartCard {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  border-radius: 5px;
+  background: #fffaf3;
+  //   margin-top: 14%;
+  //   flex: 1;
+  padding: 5%;
+  // max-height: 130vh;
+  height: 100%;
+  // height: 150vh;
+  //   overflow-y: auto;
+
+  .title {
+    font-size: 28px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 160%; /* 44.8px */
+    color: #f50077;
+    text-align: center;
+  }
+  .cardContainer {
+    position: relative;
+    background: #fff;
+    padding: 0% 2%;
+    display: flex;
+    flex-direction: column;
+    // align-items: center;
+    justify-content: center;
+    height: 70vh;
+    img {
+      position: absolute;
+      width: 25%;
+      right: 10%;
+      top: 10%;
+      display: none;
+      @media (min-width: 1700px) {
+        display: auto;
+      }
+    }
+    p,
+    ul {
+      color: #838383;
+      margin-bottom: 0;
+      font-size: 15px;
+      font-style: normal;
+      font-weight: 400;
+      line-height: 160%; /* 25.6px */
+    }
+    span {
+      white-space: nowrap;
+      display: inline-block;
+    }
+  }
+  .total {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    p {
+      color: #838383;
+      font-size: 21px;
+      font-style: normal;
+      font-weight: 700;
+      line-height: 160%; /* 33.6px */
+    }
+    .notZero {
+      color: #f50077;
+    }
+  }
+  .sb {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    p {
+      color: #838383;
+      font-size: 15px;
+      font-style: normal;
+      font-weight: 700;
+      line-height: 160%; /* 33.6px */
+    }
+    .notZero {
+      color: #666;
+    }
+  }
+  .btn {
+    button {
+      width: 100%;
+      border: 1px solid #838383;
+      font-size: 18px;
+      font-style: normal;
+      font-weight: 400;
+      line-height: 160%; /* 28.8px */
+
+      background: #f50077;
+      color: white;
+    }
+  }
+  .btn2 {
+    display: flex;
+    font-display: row;
+    justify-content: space-around;
+
+    button {
+      width: 45%;
+      border: 1px solid #838383;
+      font-size: 18px;
+      font-style: normal;
+      font-weight: 400;
+      line-height: 160%; /* 28.8px */
+
+      background: #f50077;
+      color: white;
+    }
+  }
+  .cardContainer2 {
+    background: #fff;
+
+    height: 70vh;
+    overflow-y: auto;
+
+    .orderContainer {
+      display: flex;
+      flex-direction: column;
+      width: 100%;
+      padding: 3%;
+      .deleteBtn {
+        background: #ffefad;
+      }
+
+      .items {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        width: 100%;
+        margin: 2% 0;
+        padding: 0 5%;
+        .item {
+          display: flex;
+          flex-direction: row;
+          align-items: center;
+          justify-content: space-around;
+          //   margin-right: 5%;
+          width: 40%;
+        }
+      }
+      .drink {
+        width: 40%;
+        .item {
+          display: flex;
+          flex-direction: row;
+          justify-content: space-around;
+          //   margin-right: 5%;
+          width: 100%;
+        }
+      }
+      .all {
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        justify-content: space-around;
+        //   margin-right: 5%;
+        width: 15%;
+      }
+    }
+  }
+}
+
+.person {
+  display: flex;
+  flex-direction: column;
+  p {
+    margin: 0;
+    color: #838383;
+    font-weight: 400;
+  }
+  margin: 1%;
+}

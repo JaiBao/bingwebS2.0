@@ -1,0 +1,336 @@
+.carousel__item {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  padding: 0 4%;
+  @media (min-width: 992px) {
+    justify-content: space-between;
+    padding: 0;
+  }
+}
+.carousel__item:hover {
+  cursor: pointer;
+}
+.readCard {
+  background-color: rgba(248, 241, 233, 0.5);
+  margin: 2% 1%;
+  display: block;
+  border-radius: 5px;
+  border: 1px solid rgba(255, 167, 64, 0.8);
+  box-shadow: none; // 確保沒有陰影
+  @media (min-width: 992px) {
+    width: 47%;
+  }
+}
+.readCard:hover {
+  background-color: #ffefad; /* 這是 hover 時的背景色 */
+  border: none;
+  box-shadow: 8px 8px 18px 0px rgba(0, 0, 0, 0.1);
+}
+
+.card-image {
+  flex: 0.6;
+  object-fit: contain;
+  width: 150px;
+  // height: 150px;
+  @media (min-width: 576px) {
+    width: 230px;
+    max-height: 230px;
+  }
+  @media (min-width: 768px) {
+    width: 300px;
+    // height: 300px;
+  }
+  @media (min-width: 992px) {
+    width: 100%;
+  }
+}
+.card-content {
+  padding: 0% 0;
+  height: 100%;
+  @media (min-width: 768px) {
+    padding: 2% 0;
+  }
+}
+
+.cardText {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  height: 100%;
+}
+
+.card-info {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  padding-left: 15px;
+  text-align: left;
+  h5 {
+    margin: 2% 0;
+    font-weight: 700;
+    color: #ffa740;
+    line-height: 1.4rem;
+    font-size: 1rem;
+  }
+  h6 {
+    margin: 0% 0;
+    line-height: 1.4rem;
+    font-weight: 400;
+    font-size: 0.75rem;
+    color: #666;
+    span {
+      color: #ffa740;
+      font-size: 0.75rem;
+    }
+  }
+  p {
+    font-weight: 400;
+    white-space: pre-line;
+    margin: 0% 0;
+    line-height: 1.4rem;
+    font-size: 0.75rem;
+    color: #666;
+    padding-bottom: 5%;
+    span {
+      color: #ffa740;
+      font-size: 0.75rem;
+    }
+  }
+  .bottomXs {
+    p {
+      font-size: 1.1rem;
+    }
+    .bottom {
+      p {
+        font-size: 0.625rem;
+      }
+    }
+    span {
+      color: var(--838383, #838383);
+      font-size: 0.625rem;
+      font-style: normal;
+      font-weight: 400;
+      line-height: normal;
+    }
+  }
+
+  @media (min-width: 768px) {
+    padding-left: 20px;
+    h5 {
+      font-size: 2rem;
+    }
+    p {
+      font-size: 1.7rem;
+      padding-bottom: 0%;
+    }
+  }
+  @media (min-width: 768px) {
+    // padding-top: 10%;
+    h5 {
+      font-size: 1.3125rem;
+    }
+    h6 {
+      font-size: 1rem;
+      span {
+        font-size: 1rem;
+      }
+    }
+    p {
+      font-size: 1rem;
+    }
+    .smallNote {
+      font-size: 12px;
+      color: #838383;
+      font-weight: 400;
+      line-height: 160%; /* 19.2px */
+      width: 70%;
+      margin-top: 5px;
+    }
+    .bottom {
+      p {
+        font-size: 1.5rem;
+      }
+      span {
+        color: var(--838383, #838383);
+        font-size: 0.875rem;
+        font-style: normal;
+        font-weight: 400;
+        line-height: normal;
+      }
+    }
+  }
+}
+
+.selectedDialog {
+  position: relative;
+  background: #fffaf3;
+  @media (min-width: 1500px) {
+    width: 800px;
+    max-width: 50vw;
+  }
+}
+.dialogContainer {
+  max-height: 90vh;
+  overflow-y: auto;
+}
+
+.close-dialog-button {
+  position: absolute;
+  top: 5px;
+  right: 1%;
+  z-index: 2;
+  @media (min-width: 1024px) {
+    right: 20px;
+  }
+}
+.dialogImg {
+  background: #c6c6c6;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  img {
+    width: 100%;
+    // height: 100%;
+    object-fit: contain;
+  }
+}
+
+.dialogText {
+  width: 100%;
+  padding: 5% 5% 0% 5%;
+  h4 {
+    color: #ffa740;
+    font-size: 1rem;
+    line-height: 160%; /* 44.8px */
+    span {
+      color: #ffa740;
+      font-size: 1rem;
+      font-weight: 500;
+    }
+    margin: 1% 0;
+    font-weight: 400;
+  }
+  p {
+    font-size: 0.75rem;
+    font-weight: 400;
+    color: #666;
+    margin: 0;
+    span {
+      color: #ffa740;
+      font-size: 0.75rem;
+    }
+  }
+  .dialogNote {
+    margin-top: 10px;
+    font-size: 0.65rem;
+  }
+  @media (min-width: 768px) {
+    h4 {
+      font-size: 1.75rem;
+      span {
+        font-size: 1.3125rem;
+      }
+    }
+    p {
+      font-size: 1rem;
+      span {
+        font-size: 1rem;
+      }
+    }
+    .dialogNote {
+      font-size: 0.8rem;
+    }
+  }
+}
+.dialogContent {
+  display: flex;
+  flex-direction: row;
+  padding: 2% 5% 5% 5%;
+  h6 {
+    margin: 1% 0;
+    color: #ffa740;
+    font-weight: 400;
+    font-size: 1rem;
+    // padding-left: 10px;
+    span {
+      font-size: 0.875rem;
+      color: rgba(255, 167, 64, 0.8);
+    }
+  }
+  ul {
+    // padding: 0 10%;
+    margin-top: 0;
+    padding: 0 2%;
+    font-size: 1.3rem;
+    li {
+      font-size: 0.75rem;
+      font-weight: 400;
+      span {
+        color: rgba(255, 167, 64, 0.8);
+        font-weight: 400;
+      }
+      @media (min-width: 768px) {
+        font-size: 1rem;
+        width: 49.8%;
+      }
+    }
+    li::marker {
+      font-size: 0.5rem;
+      color: black; // 可選的: 更改標記顏色
+    }
+  }
+}
+.ulType {
+  display: flex;
+  flex-direction: column;
+  @media (min-width: 768px) {
+    flex-direction: row;
+  }
+}
+.card-content {
+  /* 新品標籤的基本樣式 */
+  .new-tag {
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 40px;
+    height: 40px;
+    background-color: #ffa740;
+
+    text-align: right;
+    line-height: 20px;
+    clip-path: polygon(100% 0, 0 0, 100% 100%); /* 三角形形狀 */
+    p {
+      line-height: 0.8rem;
+      color: white;
+      transform: rotate(45deg);
+    }
+    @media (min-width: 768px) {
+      width: 60px;
+      height: 60px;
+      p {
+        line-height: 1rem;
+      }
+    }
+  }
+  .hot-tag {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-end;
+    position: absolute;
+    top: 0;
+    right: 0;
+    img {
+      object-fit: contain;
+      width: 70%;
+    }
+    // width: 40px;
+    // height: 40px;
+
+    @media (min-width: 768px) {
+    }
+  }
+}

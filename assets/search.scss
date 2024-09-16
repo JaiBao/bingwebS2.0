@@ -1,0 +1,263 @@
+.search {
+  padding: 0 5%;
+  background: #f5f5f5;
+
+  @media (min-width: 1024px) {
+    padding: 0 12%;
+  }
+}
+.searchPersons {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  background: #fff;
+  border-radius: 10px;
+  padding: 0 4%;
+  .searchInputs {
+    display: flex;
+    flex-direction: column;
+    .searchPerson {
+      width: 100%;
+      margin: 20px 0;
+    }
+  }
+  .searchBtns {
+    display: flex;
+    flex-direction: column;
+    // padding: 0 3%;
+    margin: 2%;
+    .searchNote {
+      text-align: center;
+      font-weight: 400;
+      line-height: 160%; /* 22.4px */
+      font-size: 14px;
+      color: rgba(245, 0, 119, 0.5);
+    }
+    .searchBtn {
+      display: flex;
+      flex-direction: row;
+      align-items: center;
+      justify-content: center;
+      width: 100%;
+      padding: 0 20px;
+    }
+  }
+
+  @media (min-width: 1024px) {
+    .searchInputs {
+      flex-direction: row;
+      .searchPerson {
+        width: 33%;
+        margin: 20px;
+      }
+    }
+    .searchBtns {
+      // padding: 0 3%;
+      .searchBtn {
+        width: 100%;
+      }
+    }
+  }
+}
+.haveTxt {
+  box-shadow: none;
+
+  background: #ffefad;
+}
+.searchTable {
+  width: 100%;
+  box-shadow: none;
+}
+.my-custom-row:hover {
+  background-color: #ffefad;
+}
+.gridCard {
+  background: #fffaf3;
+}
+
+.notesText {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  font-size: 1rem;
+  color: #666;
+  font-weight: 400;
+  line-height: 160%;
+  p {
+    margin: 0;
+  }
+}
+
+.cartCard {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  border-radius: 5px;
+  background: #fffaf3;
+  //   margin-top: 14%;
+  //   flex: 1;
+  padding: 1% 3%;
+  // max-height: 130vh;
+  height: 100%;
+  // height: 150vh;
+  //   overflow-y: auto;
+
+  .title {
+    font-size: 28px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 160%; /* 44.8px */
+    color: #f50077;
+    text-align: center;
+  }
+
+  .total {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    p {
+      color: #838383;
+      font-size: 21px;
+      font-style: normal;
+      font-weight: 700;
+      line-height: 160%; /* 33.6px */
+    }
+    .notZero {
+      color: #f50077;
+    }
+  }
+  .sb {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    p {
+      color: #838383;
+      font-size: 15px;
+      font-style: normal;
+      font-weight: 700;
+      line-height: 160%; /* 33.6px */
+    }
+    .notZero {
+      color: #666;
+    }
+  }
+  .btn {
+    button {
+      width: 100%;
+      border: 1px solid #838383;
+      font-size: 18px;
+      font-style: normal;
+      font-weight: 400;
+      line-height: 160%; /* 28.8px */
+
+      background: #f50077;
+      color: white;
+    }
+  }
+  .btn2 {
+    display: flex;
+    font-display: row;
+    justify-content: space-around;
+
+    button {
+      width: 45%;
+      border: 1px solid #838383;
+      font-size: 18px;
+      font-style: normal;
+      font-weight: 400;
+      line-height: 160%; /* 28.8px */
+
+      background: #f50077;
+      color: white;
+    }
+  }
+  .cardContainer2 {
+    background: #fff;
+
+    height: 38vh;
+    overflow-y: auto;
+
+    .orderContainer {
+      display: flex;
+      flex-direction: column;
+      width: 100%;
+      padding: 3%;
+      .deleteBtn {
+        background: #ffefad;
+      }
+
+      .items {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        width: 100%;
+        margin: 2% 0;
+        padding: 0 5%;
+        .item {
+          display: flex;
+          flex-direction: row;
+          align-items: center;
+          justify-content: space-around;
+          //   margin-right: 5%;
+          width: 40%;
+        }
+      }
+      .drink {
+        width: 40%;
+        .item {
+          display: flex;
+          flex-direction: row;
+          justify-content: center;
+          //   margin-right: 5%;
+          // width: 100%;
+          span {
+            width: 50%;
+            text-align: center;
+          }
+        }
+      }
+      .all {
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        justify-content: space-around;
+        //   margin-right: 5%;
+        width: 15%;
+      }
+    }
+  }
+  .personData {
+    width: 100%;
+    margin: 3% 0;
+    .money {
+      display: flex;
+      flex-direction: row;
+      justify-content: space-between;
+      //   p:nth-child(1) {
+      //     margin-right: 10px;
+      //   }
+      p {
+        width: 49%;
+        text-align: left;
+      }
+    }
+  }
+}
+
+.priviewCloseBtn {
+  background: #f50077;
+  color: #f5f5f5;
+  width: 100%;
+}
+.tableCancelBtn {
+  background: rgba(245, 0, 119, 0.5);
+  color: #f5f5f5;
+  border-radius: 50px 0 0 50px;
+}
+.tableCallBtn {
+  background: #4fa8ff;
+  color: #f5f5f5;
+  border-radius: 50px 0 0 50px;
+}
