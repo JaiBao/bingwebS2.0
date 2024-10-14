@@ -76,20 +76,21 @@
     <div class="section1">
       <p class="sectionTitle">便當選擇，正餐專區</p>
       <div class="section1Cards">
-        <q-card class="section1Card" v-for="card in section1Cards" :key="card.imgSrc">
+        <q-card class="pointer section1Card" v-for="card in section1Cards" :key="card.imgSrc" @click="navigate(card.href)">
           <div class="imgContainer">
             <img :src="card.imgSrc" class="foodImg" :alt="card.title" />
-            <img :src="card.tagSrc" class="tag" alt="標籤" />
+            <!-- <img :src="card.tagSrc" class="tag" alt="標籤" /> -->
           </div>
           <q-card-section>
-            <div class="title" :class="`text-${card.btnColor}`">{{ card.title }}</div>
-            <div class="description">{{ card.description }}</div>
+            <!--<div class="title" :class="`text-${card.btnColor}`">{{ card.title }}</div>
+            <div class="description">{{ card.description }}</div>-->
+            <img :src="card.nameSrc" class="names" alt="名稱" />
           </q-card-section>
-          <q-card-section class="w-100 q-pa-md btns">
+          <!--<q-card-section class="w-100 q-pa-md btns">
             <q-btn :outline="card.outline" class="cardBtn" :color="card.btnColor" :to="card.href" @mouseover="toggleOutline(card)" @mouseout="toggleOutline(card)">
               {{ card.btnText }}
             </q-btn>
-          </q-card-section>
+          </q-card-section> -->
         </q-card>
       </div>
     </div>
@@ -97,16 +98,17 @@
     <div class="section2">
       <p class="sectionTitle">午後食刻，下午茶專區</p>
       <div class="section2Cards">
-        <q-card class="section2Card" v-for="card in section2Cards" :key="card.imgSrc">
+        <q-card class="pointer section2Card" v-for="card in section2Cards" :key="card.imgSrc" @click="navigate(card.href)">
           <div class="imgContainer">
             <img :src="card.imgSrc" class="foodImg" :alt="card.title" />
-            <img :src="card.tagSrc" class="tag" alt="標籤" />
+            <!-- <img :src="card.tagSrc" class="tag" alt="標籤" /> -->
           </div>
           <q-card-section>
-            <div class="title" :class="`text-${card.titleColor}`">{{ card.title }}</div>
-            <div class="description">{{ card.description }}</div>
+            <img :src="card.nameSrc" class="tag" alt="標籤" />
+            <!-- <div class="title" :class="`text-${card.titleColor}`">{{ card.title }}</div>
+            <div class="description">{{ card.description }}</div> -->
           </q-card-section>
-          <q-card-section class="w-100 q-pa-md btns">
+          <!-- <q-card-section class="w-100 q-pa-md btns">
             <q-btn
               :outline="card.outline"
               class="cardBtn"
@@ -117,7 +119,7 @@
               @mouseout="toggleOutline(card)">
               {{ card.btnText }}
             </q-btn>
-          </q-card-section>
+          </q-card-section> -->
         </q-card>
       </div>
     </div>
@@ -133,18 +135,19 @@
         熱賣商品
       </div>
       <div class="section3Cards">
-        <q-card class="section3Card" v-for="card in section3Cards" :key="card.imgSrc">
+        <q-card class="pointer section3Card" v-for="card in section3Cards" :key="card.imgSrc" @click="onFabClick">
           <div class="imgContainer">
             <img :src="card.imgSrc" class="foodImg" :alt="card.title" />
-            <div class="tag text-white" :class="`bg-${card.titleColor}`">
+            <!-- <div class="tag text-white" :class="`bg-${card.titleColor}`">
               {{ card.tagText }}
-            </div>
+            </div> -->
           </div>
           <q-card-section>
-            <div class="title" :class="`text-${card.titleColor}`">{{ card.title }}</div>
-            <div class="description">{{ card.description }}</div>
+            <img :src="card.nameSrc" class="foodImg" :alt="card.title" />
+            <!-- <div class="title" :class="`text-${card.titleColor}`">{{ card.title }}</div>
+            <div class="description">{{ card.description }}</div> -->
           </q-card-section>
-          <q-card-section class="w-100 q-pa-md btns">
+          <!-- <q-card-section class="w-100 q-pa-md btns">
             <q-btn
               :outline="card.outline"
               class="cardBtn"
@@ -155,7 +158,7 @@
               @mouseout="toggleOutline(card)">
               {{ card.btnText }}
             </q-btn>
-          </q-card-section>
+          </q-card-section> -->
         </q-card>
       </div>
     </div>
@@ -247,6 +250,7 @@ useHead({
 interface Card {
   imgSrc: string
   tagSrc: string
+  nameSrc: string
   title: string
   description: string
   titleColor: string
@@ -260,6 +264,14 @@ interface Card {
 
 const showFloatingDiv = ref(true)
 
+const navigate = (href?: string) => {
+  if (href) {
+    // 檢查 href 是否為 string，然後再進行導航
+    router.push(href)
+  } else {
+    console.warn('無法導航')
+  }
+}
 const closeFloatingDiv = () => {
   showFloatingDiv.value = false
 }
@@ -296,6 +308,7 @@ const section1Cards = ref<Card[]>([
   {
     imgSrc: '/delicious/dialog-2-pic-4.png',
     tagSrc: '/delicious/bingTag.png',
+    nameSrc: '/delicious/bingNameBig.svg',
     title: '潤餅便當',
     description: '中華一餅高人氣潤餅便當，傳承五十年好手藝結合創新技術，以潤餅為主角結合台灣在地好食材，是富有飽足感的美味餐盒！',
     titleColor: 'pink-8',
@@ -308,6 +321,7 @@ const section1Cards = ref<Card[]>([
   {
     imgSrc: '/delicious/dialog-2-pic-17.jpg',
     tagSrc: '/delicious/riceBoxTag.png',
+    nameSrc: '/delicious/riceNameBig.svg',
     title: '米香油飯盒',
     description: '全新品牌〈喜客油飯〉，用台灣古早味麻油米香油飯為基底主角，同時使用台灣在地食材與精選主餐，製作出獨具特色的「米香油飯餐盒」。',
     titleColor: 'orange-7',
@@ -323,6 +337,7 @@ const section2Cards = ref<Card[]>([
   {
     imgSrc: '/delicious/dialog-2-pic-10-1.png',
     tagSrc: '/delicious/bingTag.png',
+    nameSrc: '/delicious/bingName.svg',
     title: '午茶盒餐',
     description: '午後的忙碌時刻，也要享受中華一餅獨具特色的午茶盒餐，調節繁忙的工作節奏。',
     titleColor: 'pink-8',
@@ -333,8 +348,9 @@ const section2Cards = ref<Card[]>([
     outline: true
   },
   {
-    imgSrc: '/delicious/dialog-2-pic-share.png',
+    imgSrc: '/delicious/dialog-2-pic-17.jpg',
     tagSrc: '/delicious/bingTag.png',
+    nameSrc: '/delicious/riceName.svg',
     title: '分享盒餐',
     description: '美味就是要跟大夥們一起分享，中華一餅分享餐，與同事好友們共享美味！',
     titleColor: 'pink-8',
@@ -347,6 +363,7 @@ const section2Cards = ref<Card[]>([
   {
     imgSrc: '/delicious/douhua.png',
     tagSrc: '/delicious/soyTag.png',
+    nameSrc: '/delicious/soyName.svg',
     title: '豆花甜湯',
     description: '甜品是讓人感覺到快樂與幸福，讓花豆囍事用最美好的味蕾感受，讓你天天都能Sweet ! Sweet !',
     titleColor: 'yellow-8',
@@ -362,6 +379,7 @@ const section3Cards = ref<Card[]>([
   {
     imgSrc: '/delicious/dialog-2-pic-10-1.png',
     tagSrc: '/delicious/bingTag.png',
+    nameSrc: '/delicious/bingName.svg',
     title: '午茶盒餐',
     description: '3吋潤餅 + 蜂蜜芥末醬地瓜 + 主廚小點 + 紐澳良雞翅 + 湯飲品選擇 1',
     titleColor: 'pink-8',
@@ -375,6 +393,7 @@ const section3Cards = ref<Card[]>([
   {
     imgSrc: '/delicious/dialog-2-pic-17.jpg',
     tagSrc: '/delicious/bingTag.png',
+    nameSrc: '/delicious/riceName.svg',
     title: '香滷控肉油飯盒',
     description: '極品油飯 + 香滷控肉 + 古早味筍絲 + 家鄉酸菜 + 滷蛋 + 杏鮑菇 + 香滷豆干',
     titleColor: 'orange-7',
@@ -388,6 +407,7 @@ const section3Cards = ref<Card[]>([
   {
     imgSrc: '/delicious/dialog-2-pic-9.png',
     tagSrc: '/delicious/soyTag.png',
+    nameSrc: '/delicious/soyName.svg',
     title: '午茶盒餐-貴賓盒餐',
     description: '3吋潤餅 + 蜂蜜芥末醬地瓜 + 主廚小點 + 湯飲品選擇 1',
     titleColor: 'pink-8',

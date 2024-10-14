@@ -52,7 +52,7 @@
             <!-- <q-route-tab to="/delicious" label="美味餐點" id="drawerTab" /> -->
             <!-- 美味餐點 - 下拉式選單 -->
 
-            <q-expansion-item label="美味餐點" class="expansionTab" :class="{ 'expansion-item-active': isActiveDelicious }">
+            <q-expansion-item label="美味餐點" class="expansionTab" :class="{ 'expansion-item-active': isActiveDelicious }" default-opened>
               <q-item :class="{ 'active-item': route.name === 'chinaBing' }" clickable :to="{ name: 'chinaBing' }">
                 <q-item-section>中華一餅</q-item-section>
               </q-item>
@@ -652,6 +652,12 @@ onMounted(() => {
   img {
     width: 100%;
     object-fit: contain;
+  }
+}
+
+.expansionTab {
+  .q-item {
+    padding-left: 21%;
   }
 }
 </style>

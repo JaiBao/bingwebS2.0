@@ -11,6 +11,9 @@ ENV ENV_FILE=${ENV_FILE}
 RUN apk add --no-cache bash
 RUN cp /app/${ENV_FILE} /app/.env && npm i
 
+# 將影片檔案放到最後才進行複製
+COPY public/history/fontMovie.mp4 /app/public/history/fontMovie.mp4
+
 # build stage
 FROM develop-stage as build-stage
 RUN npm run build
@@ -33,6 +36,7 @@ RUN apk add --no-cache tzdata \
 
 
 COPY --from=build-stage /app/.output /app/.output
+COPY --from=build-stage /app/public/history/fontMovie.mp4 /app/public/history/fontMovie.mp4
 EXPOSE 3000
 
 

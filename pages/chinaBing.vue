@@ -55,16 +55,17 @@
     <div class="section1">
       <p class="sectionTitle">你可能會喜歡的中華美食！</p>
       <div class="section1Cards">
-        <q-card class="section1Card" v-for="card in section1Cards" :key="card.imgSrc">
+        <q-card class="pointer section1Card" v-for="card in section1Cards" :key="card.imgSrc" @click="navigate(card.href)">
           <div class="imgContainer">
             <img :src="card.imgSrc" class="foodImg" :alt="card.title" />
-            <img :src="card.tagSrc" class="tag" alt="標籤" />
+            <!-- <img :src="card.tagSrc" class="tag" alt="標籤" /> -->
           </div>
           <q-card-section>
-            <div class="title" :class="`text-${card.titleColor}`">{{ card.title }}</div>
-            <div class="description">{{ card.description }}</div>
+            <img :src="card.nameSrc" class="names" alt="名稱" />
+            <!-- <div class="title" :class="`text-${card.titleColor}`">{{ card.title }}</div>
+            <div class="description">{{ card.description }}</div> -->
           </q-card-section>
-          <q-card-section class="w-100 q-pa-md btns">
+          <!-- <q-card-section class="w-100 q-pa-md btns">
             <q-btn
               :outline="card.outline"
               class="cardBtn"
@@ -75,7 +76,7 @@
               @mouseout="toggleOutline(card)">
               {{ card.btnText }}
             </q-btn>
-          </q-card-section>
+          </q-card-section> -->
         </q-card>
       </div>
     </div>
@@ -128,10 +129,19 @@ useHead({
 })
 
 const router = useRouter()
+const navigate = (href?: string) => {
+  if (href) {
+    // 檢查 href 是否為 string，然後再進行導航
+    router.push(href)
+  } else {
+    console.warn('無法導航')
+  }
+}
 
 interface Card {
   imgSrc: string
   tagSrc: string
+  nameSrc: string
   title: string
   description: string
   titleColor: string
@@ -147,6 +157,7 @@ const section1Cards = ref<Card[]>([
   {
     imgSrc: '/delicious/dialog-2-pic-17.jpg',
     tagSrc: '/delicious/riceBoxTag.png',
+    nameSrc: '/delicious/riceName.svg',
     title: '米香油飯盒',
     description: '全新品牌〈喜客油飯〉，用台灣古早味麻油米香油飯為基底主角，同時使用台灣在地食材與精選主餐，製作出獨具特色的「米香油飯餐盒」。',
     titleColor: 'orange-7',
@@ -159,6 +170,7 @@ const section1Cards = ref<Card[]>([
   {
     imgSrc: '/delicious/douhua.png',
     tagSrc: '/delicious/soyTag.png',
+    nameSrc: '/delicious/soyName.svg',
     title: '豆花甜湯',
     description: '甜品是讓人感覺到快樂與幸福，讓花豆囍事用最美好的味蕾感受，讓你天天都能Sweet ! Sweet !',
     titleColor: 'yellow-8',

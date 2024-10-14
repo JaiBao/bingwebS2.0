@@ -319,6 +319,7 @@
             <p>餐費: {{ selectedOrder.subTotal }} 元</p>
             <p>總金額: {{ selectedOrder.paymentTotal }}元</p>
           </div>
+          <p v-if="selectedOrder.comment">備註: {{ selectedOrder.comment }}</p>
         </div>
         <q-btn class="priviewCloseBtn" utlined label="關閉" @click="orderDetailsDialogVisible = false" />
       </q-card-actions>
@@ -361,9 +362,20 @@ const handleOrderClick = row => {
   // console.log('shippingFee:', shippingFee)
   // console.log('subTotal:', subTotal)
 
-  fetchOrderDetails(row.orderID, row.personal_name, row.mobile, formatAddress2(row), row.paymentTotal, shippingFee, subTotal, row.paymentCompany, row.paymentTin)
+  fetchOrderDetails(
+    row.orderID,
+    row.personal_name,
+    row.mobile,
+    formatAddress2(row),
+    row.paymentTotal,
+    shippingFee,
+    subTotal,
+    row.paymentCompany,
+    row.paymentTin,
+    row.comment
+  )
 }
-const fetchOrderDetails = async (orderID, personalName, mobile, address, paymentTotal, shippingFee, subTotal, paymentCompany, paymentTin) => {
+const fetchOrderDetails = async (orderID, personalName, mobile, address, paymentTotal, shippingFee, subTotal, paymentCompany, paymentTin, comment) => {
   try {
     const response = await axios.get(`${quantityApiUrl}/order/${orderID}`)
     orderDetails.value = response.data
@@ -377,7 +389,8 @@ const fetchOrderDetails = async (orderID, personalName, mobile, address, payment
       shippingFee: shippingFee,
       subTotal: subTotal,
       paymentCompany: paymentCompany,
-      paymentTin: paymentTin
+      paymentTin: paymentTin,
+      comment: comment
     }
 
     orderDetailsDialogVisible.value = true
@@ -396,7 +409,7 @@ const mealNameMap = {
   滷肉潤餅3吋: '媽手老滷肉潤餅',
   全素潤餅3吋: '全素薯泥香素鬆潤餅',
   蛋素潤餅3吋: '蛋素薯泥香素鬆潤餅',
-  主廚潤餅3吋: '潤餅捲2入',
+  主廚潤餅3吋: '主廚潤餅3吋',
   薯泥潤餅: '薯泥香素鬆潤餅',
   炸蝦潤餅: '千島香酥蝦潤餅',
   芥雞潤餅: '蜂蜜芥末雞潤餅',

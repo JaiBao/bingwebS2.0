@@ -39,16 +39,17 @@
     <div class="section1">
       <p class="sectionTitle">你可能會喜歡的中華美食！</p>
       <div class="section1Cards">
-        <q-card class="section1Card" v-for="card in section1Cards" :key="card.imgSrc">
+        <q-card class="pointer section1Card" v-for="card in section1Cards" :key="card.imgSrc" @click="navigate(card.href)">
           <div class="imgContainer">
             <img :src="card.imgSrc" class="foodImg" :alt="card.title" />
-            <img :src="card.tagSrc" class="tag" alt="標籤" />
+            <!-- <img :src="card.tagSrc" class="tag" alt="標籤" /> -->
           </div>
           <q-card-section>
-            <div class="title" :class="`text-${card.titleColor}`">{{ card.title }}</div>
-            <div class="description">{{ card.description }}</div>
+            <!-- <div class="title" :class="`text-${card.titleColor}`">{{ card.title }}</div>
+            <div class="description">{{ card.description }}</div> -->
+            <img :src="card.nameSrc" class="names" alt="名稱" />
           </q-card-section>
-          <q-card-section class="w-100 q-pa-md btns">
+          <!-- <q-card-section class="w-100 q-pa-md btns">
             <q-btn
               :outline="card.outline"
               class="cardBtn"
@@ -59,7 +60,7 @@
               @mouseout="toggleOutline(card)">
               {{ card.btnText }}
             </q-btn>
-          </q-card-section>
+          </q-card-section> -->
         </q-card>
       </div>
     </div>
@@ -112,12 +113,21 @@ useHead({
 })
 
 const router = useRouter()
+const navigate = (href?: string) => {
+  if (href) {
+    // 檢查 href 是否為 string，然後再進行導航
+    router.push(href)
+  } else {
+    console.warn('無法導航')
+  }
+}
 const navigateTo = (route: string) => {
   router.push(route)
 }
 interface Card {
   imgSrc: string
   tagSrc: string
+  nameSrc: string
   title: string
   description: string
   titleColor: string
@@ -132,6 +142,7 @@ const section1Cards = ref<Card[]>([
   {
     imgSrc: '/delicious/dialog-2-pic-4.png',
     tagSrc: '/delicious/bingTag.png',
+    nameSrc: '/delicious/bingName.svg',
     title: '潤餅便當',
     description: '中華一餅高人氣潤餅便當，傳承五十年好手藝結合創新技術，以潤餅為主角結合台灣在地好食材，是富有飽足感的美味餐盒！',
     titleColor: 'pink-8',
@@ -144,6 +155,7 @@ const section1Cards = ref<Card[]>([
   {
     imgSrc: '/delicious/douhua.png',
     tagSrc: '/delicious/soyTag.png',
+    nameSrc: '/delicious/soyName.svg',
     title: '豆花甜湯',
     description: '甜品是讓人感覺到快樂與幸福，讓花豆囍事用最美好的味蕾感受，讓你天天都能Sweet ! Sweet !',
     titleColor: 'yellow-8',
